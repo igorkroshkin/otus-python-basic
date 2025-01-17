@@ -147,6 +147,7 @@ def find_contact_by_name():
             print(data)
     else:
         print(f"Контактов, удовлетворяющих имени \"{find_text}\" не найдено.")
+
 ### [5.4] - поиск контакта в буфере по телефону
 def find_contact_by_number():
     global buffer
@@ -173,6 +174,7 @@ def find_contact_by_number():
             print(data)
     else:
         print(f"Контактов, удовлетворяющих номеру телефона \"{find_text}\" не найдено.")
+
 ### [5.5] - поиск контакта в буфере по комментарию
 def find_contact_by_comment():
     global buffer
