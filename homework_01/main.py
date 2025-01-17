@@ -66,7 +66,7 @@ def create_contact():
                           contact_comment
                 print(f"Контакт \"{contact_name}\" с идентификатором \"{contact_id}\" успешно создан.")
 
-### [5] - найти контакт в буфере
+### [5.1] - найти контакт в буфере по всем полям
 def find_contact():
     global buffer
 
@@ -75,10 +75,10 @@ def find_contact():
     # строка для поиска
     show_contacts()
     content = str_to_list(buffer)
-    find_text = input("Поиск осуществляется по следующим полям: Идентификатор, Имя, Телефон, Комментарий. Введите строку для поиска: ")
+    find_text = input("Вы выбрали поиск по всем полям. Введите строку для поиска: ")
 
     # поиск совпадений
-    for i in range(0, len(content)):
+    for i in range(1, len(content)):
         for j in range(0, COLUMNS):
             if find_text in content[i][j]:
                 found.append(content[i])
@@ -94,6 +94,112 @@ def find_contact():
     else:
         print(f"Контактов, удовлетворяющих строке поиска \"{find_text}\" не найдено.")
 
+### [5.2] - поиска контакта в буфере по идентификатору
+def find_contact_by_id():
+    global buffer
+
+    found = []
+
+    # строка для поиска
+    show_contacts()
+    content = str_to_list(buffer)
+    find_text = input("Вы выбрали поиск по идентификатору. Введите строку для поиска: ")
+
+    # поиск совпадений
+    for i in range(1, len(content)):
+        if find_text in content[i][0]:
+            found.append(content[i])
+
+    # печать совпадений
+    if len(found) > 0:
+        print(f"Список контактов, удовлетворяющих идентификатору \"{find_text}\":")
+        for i in range(0, len(found)):
+            data = ""
+            for j in range(0, COLUMNS):
+                data += found[i][j] + " "
+            print(data)
+    else:
+        print(f"Контактов, удовлетворяющих идентификатору \"{find_text}\" не найдено.")
+
+### [5.3] - поиск контакта в буфере по имени
+def find_contact_by_name():
+    global buffer
+
+    found = []
+
+    # строка для поиска
+    show_contacts()
+    content = str_to_list(buffer)
+    find_text = input("Вы выбрали поиск по имени. Введите строку для поиска: ")
+
+    # поиск совпадений
+    for i in range(1, len(content)):
+        if find_text in content[i][1]:
+            found.append(content[i])
+
+    # печать совпадений
+    if len(found) > 0:
+        print(f"Список контактов, удовлетворяющих имени \"{find_text}\":")
+        for i in range(0, len(found)):
+            data = ""
+            for j in range(0, COLUMNS):
+                data += found[i][j] + " "
+            print(data)
+    else:
+        print(f"Контактов, удовлетворяющих имени \"{find_text}\" не найдено.")
+### [5.4] - поиск контакта в буфере по телефону
+def find_contact_by_number():
+    global buffer
+
+    found = []
+
+    # строка для поиска
+    show_contacts()
+    content = str_to_list(buffer)
+    find_text = input("Вы выбрали поиск по номеру телефона. Введите строку для поиска: ")
+
+    # поиск совпадений
+    for i in range(1, len(content)):
+        if find_text in content[i][2]:
+            found.append(content[i])
+
+    # печать совпадений
+    if len(found) > 0:
+        print(f"Список контактов, удовлетворяющих номеру телефона \"{find_text}\":")
+        for i in range(0, len(found)):
+            data = ""
+            for j in range(0, COLUMNS):
+                data += found[i][j] + " "
+            print(data)
+    else:
+        print(f"Контактов, удовлетворяющих номеру телефона \"{find_text}\" не найдено.")
+### [5.5] - поиск контакта в буфере по комментарию
+def find_contact_by_comment():
+    global buffer
+
+    found = []
+
+    # строка для поиска
+    show_contacts()
+    content = str_to_list(buffer)
+    find_text = input("Вы выбрали поиск по комментарию. Введите строку для поиска: ")
+
+    # поиск совпадений
+    for i in range(1, len(content)):
+        if find_text in content[i][3]:
+            found.append(content[i])
+
+    # печать совпадений
+    if len(found) > 0:
+        print(f"Список контактов, удовлетворяющих комментарию \"{find_text}\":")
+        for i in range(0, len(found)):
+            data = ""
+            for j in range(0, COLUMNS):
+                data += found[i][j] + " "
+            print(data)
+    else:
+        print(f"Контактов, удовлетворяющих комментарию \"{find_text}\" не найдено.")
+
 ### [6] - изменить контакт в буфере на основе идентификатора
 def modify_contact():
     global buffer
@@ -101,13 +207,13 @@ def modify_contact():
     show_contacts()
     content = str_to_list(buffer)
 
-    modify_id = int(input("Введите идентификатор контакта для изменения: "))
+    modify_id = input("Введите идентификатор контакта для изменения: ")
 
     index = 0
 
     # определение индекса контакта для изменения
     for i in range(1, len(content)):
-        if modify_id == int(content[i][0]):
+        if modify_id == content[i][0]:
             index = i
 
     #  изменение контакта с валидацией введенных значений
@@ -148,12 +254,12 @@ def remove_contact():
     show_contacts()
     content = str_to_list(buffer)
 
-    number = int(input("Введите идентификатор контакта для удаления: "))
+    number = input("Введите идентификатор контакта для удаления: ")
 
     index = 0
 
     for i in range(1, len(content)):
-        if number == int(content[i][0]):
+        if number == content[i][0]:
             index = i
 
     if index > 0:
@@ -255,7 +361,17 @@ if __name__ == "__main__":
         elif operation == "4":
             create_contact()
         elif operation == "5":
-            find_contact()
+            find_operation = input("Выберите по каким полям будет осуществляться поиск, [1] - по всем полям, [2] - по идентификатору, [3] - по номеру телефона, [4] - по комментарию: ")
+            if find_operation == "1":
+                find_contact()
+            elif find_operation == "2":
+                find_contact_by_id()
+            elif find_operation == "3":
+                find_contact_by_number()
+            elif find_operation == "4":
+                find_contact_by_comment()
+            else:
+                print("Вы ввели недопустимый символ!")
         elif operation == "6":
             modify_contact()
         elif operation == "7":
