@@ -1,7 +1,6 @@
 ### Программа телефонный справочник
 ### homework_01, курс Otus-Python-Basic
 ### Автор Крошкин Игорь, 17.01.2025
-from homework_01.old_version.main import filter_numbers
 
 FILE = "contacts.txt" # содержит список контактов
 COLUMNS = 4 # количество столбцов в файле контактов
