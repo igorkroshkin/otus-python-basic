@@ -361,14 +361,16 @@ if __name__ == "__main__":
         elif operation == "4":
             create_contact()
         elif operation == "5":
-            find_operation = input("Выберите по каким полям будет осуществляться поиск, [1] - по всем полям, [2] - по идентификатору, [3] - по номеру телефона, [4] - по комментарию: ")
+            find_operation = input("Выберите по каким полям будет осуществляться поиск, [1] - по всем полям, [2] - по идентификатору, [3] - по имени, [4] - по номеру телефона, [5] - по комментарию: ")
             if find_operation == "1":
                 find_contact()
             elif find_operation == "2":
                 find_contact_by_id()
             elif find_operation == "3":
-                find_contact_by_number()
+                find_contact_by_name()
             elif find_operation == "4":
+                find_contact_by_number()
+            elif find_operation == "5":
                 find_contact_by_comment()
             else:
                 print("Вы ввели недопустимый символ!")
