@@ -29,6 +29,7 @@ def start_app():
     menu_items = [
         controller.open_file,
         controller.save_file,
+        controller.show_contacts,
         controller.exit_app
     ]
 
