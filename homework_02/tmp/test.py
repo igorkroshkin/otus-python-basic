@@ -1,17 +1,19 @@
 
-# class PhoneBook:
-#     def __init__(self, path):
-#         self.path = path
-#
-#     def get_contacts(self):
-#         return open(self.path, "r", encoding="utf-8").read()
-#
-# pb = PhoneBook("./contacts.txt")
-# print(pb.get_contacts())
+def show_contacts(data):
+    return "\n".join(str(i) for i in data)
 
-class Read_File():
-    def __init__(self, path):
-        self.path = open(path, "r", encoding="utf-8").read()
+mylist = [1, 2, 3]
 
-read_file = Read_File("contacts.txt")
-print(read_file.path)
+print(show_contacts(mylist))
+
+class PhoneBook:
+    def __init__(self, content):
+        self.content = content
+
+    def show_contacts(self) -> str:
+        return "\n".join(str(i) for i in self.content)
+
+if __name__ == "__main__":
+    pb = PhoneBook
+    mylist = [1, 2, 3]
+    print(pb.show_contacts(mylist))

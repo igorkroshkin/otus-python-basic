@@ -17,7 +17,9 @@ class Controller:
         pass
 
     def exit_app(self):
-        pass
+        exit()
+
+
 def start_app():
 
     controller = Controller(model.PhoneBook("contacts.txt"))
