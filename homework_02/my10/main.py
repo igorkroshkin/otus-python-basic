@@ -4,8 +4,8 @@
 ### homework_01, курс Otus-Python-Basic
 ### Автор Крошкин Игорь, 17.01.2025
 
-
+import controller
 
 if __name__ == "__main__":
-    view = View()
-    view.run()
+    controller = controller.Controller()
+    controller.run()
