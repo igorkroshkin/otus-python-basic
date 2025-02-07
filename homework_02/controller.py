@@ -105,7 +105,10 @@ class Controller:
         exit()
 
     def run(self):
-        while True:
+
+        loop_condition = True
+
+        while loop_condition:
             self.view.menu_items()
             operation = self.get_input("Введите номер операции: ")
 
@@ -127,4 +130,4 @@ class Controller:
 
             confirmation = self.get_input("Вы хотите продолжить? [Y/N, Д/Н]: ").lower()
             if confirmation in ["n", "н"]:
-                break
+                loop_condition = False
