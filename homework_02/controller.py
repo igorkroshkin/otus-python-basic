@@ -9,6 +9,9 @@ class Controller:
     def get_input(self, prompt):
         return input(prompt)
 
+    def get_input_field(self, prompt):
+        return input(prompt)
+
     def menu_open_file(self):
         self.phone_book.load_contacts()
         self.view.show_message("Файл успешно открыт.")
@@ -34,14 +37,26 @@ class Controller:
             self.view.show_message("Вы ввели недопустимые символы.")
 
     def menu_search_contact(self):
+
+        search_text = ""
+        found_contacts = []
+
         self.menu_show_contacts()
-        search_text = self.get_input("Введите строку для поиска: ")
-        found_contacts = self.phone_book.find_contact(search_text)
-        if found_contacts:
-            self.view.show_message(f"Список контактов, удовлетворяющих условию \"{search_text}\":")
-            self.view.show_contacts(found_contacts)
+
+        search_field = self.get_input_field("Введите поле для поиска: [1] - Идентификатор, [2] - Имя, [3] - Телефон, [4] - комментарий, [5] - по всем полям: ")
+
+        if search_field in "12345":
+            search_text = self.get_input("Введите строку для поиска: ")
         else:
-            self.view.show_message(f"Контактов, удовлетворяющих условию \"{search_text}\" не найдено.")
+            self.view.show_message("Вы выбрали недопустимое поле для поиска.")
+
+        if search_text:
+            found_contacts = self.phone_book.find_contact(search_field, search_text)
+            if found_contacts:
+                self.view.show_message(f"Список контактов, удовлетворяющих условию \"{search_text}\":")
+                self.view.show_contacts(found_contacts)
+            else:
+                self.view.show_message(f"Контактов, удовлетворяющих условию \"{search_text}\" не найдено.")
 
     def menu_modify_contact(self):
         self.menu_show_contacts()

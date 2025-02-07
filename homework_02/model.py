@@ -115,14 +115,32 @@ class PhoneBook:
             self.contacts.append(new_contact)
             return new_contact
 
-    def find_contact(self, search_text):
+    def find_contact(self, search_field, search_text):
         found = []
-        for contact in self.contacts:
-            if (search_text in str(contact.contact_id) or
-                search_text in contact.name or
-                search_text in contact.phone or
-                search_text in contact.comment):
-                found.append(contact)
+
+        if search_field == "1":
+            for contact in self.contacts:
+                if search_text in str(contact.contact_id):
+                    found.append(contact)
+        if search_field == "2":
+            for contact in self.contacts:
+                if search_text.lower() in contact.name.lower():
+                    found.append(contact)
+        if search_field == "3":
+            for contact in self.contacts:
+                if search_text in contact.phone:
+                    found.append(contact)
+        if search_field == "4":
+            for contact in self.contacts:
+                if search_text.lower() in contact.comment.lower():
+                    found.append(contact)
+        if search_field == "5":
+            for contact in self.contacts:
+                if (search_text in str(contact.contact_id) or
+                        search_text.lower() in contact.name.lower() or
+                        search_text in contact.phone or
+                        search_text.lower() in contact.comment.lower()):
+                    found.append(contact)
         return found
 
     def modify_contact(self, contact_id, field, new_value):
