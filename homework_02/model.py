@@ -4,6 +4,9 @@ from _pytest._code import source
 
 
 class ReadFile:
+    """
+    Используется для чтения/открытия файла
+    """
     @staticmethod
     def read():
         contacts = []
@@ -15,6 +18,9 @@ class ReadFile:
         return contacts
 
 class SaveFile:
+    """
+    Используется для сохранения списка контактов в файл
+    """
     @staticmethod
     def save(contacts):
         with open("contacts.txt", "w", encoding="utf-8") as file:
@@ -23,6 +29,7 @@ class SaveFile:
                 file.write(f"{contact}\n")
 
 class Contact:
+    "Используется для формирования данных контакта на основе полей и их валидации"
     def __init__(self, contact_id, name, phone, comment):
         self.contact_id = contact_id
         self.name = name
@@ -92,6 +99,9 @@ class Contact:
         return f"{self.contact_id} {self.name} {self.phone} {self.comment}"
 
 class PhoneBook:
+    """
+    Используется для операций с телефонной книгой
+    """
     def __init__(self):
         self.contacts = []
         self.load_contacts()

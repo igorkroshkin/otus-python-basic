@@ -2,6 +2,9 @@ import view
 import model
 
 class Controller:
+    """
+    Используется для управления при выборе пункта меню
+    """
     def __init__(self):
         self.phone_book = model.PhoneBook()
         self.view = view.View()
