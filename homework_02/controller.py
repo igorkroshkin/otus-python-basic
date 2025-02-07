@@ -45,14 +45,34 @@ class Controller:
 
     def menu_modify_contact(self):
         self.menu_show_contacts()
-        contact_id = int(self.get_input("Введите идентификатор контакта для изменения: "))
-        field = self.get_input("Выберите поле для изменения (name, phone, comment): ")
-        new_value = self.get_input("Введите новое значение: ")
-        modified_contact = self.phone_book.modify_contact(contact_id, field, new_value)
-        if modified_contact:
-            self.view.show_message(f"Контакт {modified_contact.name} успешно изменен.")
+        contact_id = self.get_input("Введите идентификатор контакта для изменения: ")
+
+        modified_contact = ()
+        contact_id_exist = False
+
+        for contact in self.phone_book.contacts:
+            if contact_id in str(contact.contact_id):
+                contact_id_exist = True
+
+        if contact_id_exist:
+            field = self.get_input("Выберите поле для изменения ([1] - имя, [2] - телефон, [3] - комментарий): ")
+            if field == "1":
+                new_value = self.get_input("Введите новое имя: ")
+                modified_contact = self.phone_book.modify_contact(int(contact_id), "name", new_value)
+            elif field == "2":
+                new_value = self.get_input("Введите новый номер: ")
+                modified_contact = self.phone_book.modify_contact(int(contact_id), "phone", new_value)
+            elif field == "3":
+                new_value = self.get_input("Введите новый комментарий: ")
+                modified_contact = self.phone_book.modify_contact(int(contact_id), "comment", new_value)
+
+            if modified_contact:
+                self.view.show_message(f"Контакт {modified_contact.name} успешно изменен.")
+            else:
+                self.view.show_message("Вы ввели недопустимые символы.")
         else:
-            self.view.show_message("Контакт не найден.")
+            self.view.show_message(f"Контакта с идентификатором \"{contact_id}\" не найдено.")
+
 
     def menu_delete_contact(self):
         self.menu_show_contacts()

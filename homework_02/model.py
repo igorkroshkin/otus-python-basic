@@ -1,3 +1,5 @@
+from os.path import commonpath
+
 from _pytest._code import source
 
 
@@ -27,11 +29,18 @@ class Contact:
         self.phone = phone
         self.comment = comment
 
-    def validate_name_comment(self, name, comment):
-        if self.name.isalnum() and self.comment.isalnum():
+    def validate_name(self, name):
+        if self.name.isalnum():
             return True
         else:
             return False
+
+    def validate_comment(self, comment):
+        if self.comment.isalnum():
+            return True
+        else:
+            return False
+
 
     def validate_number(self, phone):
 
@@ -100,7 +109,9 @@ class PhoneBook:
         contact_id = self.contacts[-1].contact_id + 1 if self.contacts else 1
         new_contact = Contact(contact_id, name, phone, comment)
 
-        if new_contact.validate_name_comment(name, comment) and new_contact.validate_number(phone):
+        if (new_contact.validate_name(name) and
+                new_contact.validate_comment(comment) and
+                new_contact.validate_number(phone)):
             self.contacts.append(new_contact)
             return new_contact
 
@@ -115,16 +126,19 @@ class PhoneBook:
         return found
 
     def modify_contact(self, contact_id, field, new_value):
+
         for contact in self.contacts:
             if contact.contact_id == contact_id:
-                if field == "name":
+                if field == "name" and contact.validate_name(new_value):
                     contact.name = new_value
-                elif field == "phone":
+                    return contact
+                elif field == "phone" and contact.validate_number(new_value):
                     contact.phone = new_value
-                elif field == "comment":
+                    return contact
+                elif field == "comment" and contact.validate_comment(new_value):
                     contact.comment = new_value
-                return contact
-        return None
+                    return contact
+        return False
 
     def remove_contact(self, contact_id):
         for i, contact in enumerate(self.contacts):
