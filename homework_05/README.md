@@ -1,13 +1,13 @@
-### Предварительные требования:
+### 1. Предварительные требования:
 Необходимо установить:
 - docker
 - docker-compose
 
-### Запуск приложения:
+### 2. Запуск приложения:
 
-docker-compose up -d
+Через docker-compose: docker-compose up -d
 
-либо:  
+Через docker/build, docker/run:
 
 - docker build -t ping-pong .
 - docker run -d -p 8000:8000 ping-pong
