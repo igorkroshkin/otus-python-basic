@@ -10,6 +10,22 @@ docker-compose up -d
 ### Проверка доступности приложения:
 http://localhost:8000/ping/
 
+### Проверка автоматического теста:
+pytest -v
+
+==================================================================== test session starts =====================================================================
+platform linux -- Python 3.11.11, pytest-8.3.4, pluggy-1.5.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/user/otus-test/otus-python-basic/homework_05
+plugins: cov-6.0.0, anyio-4.8.0, asyncio-0.20.3, Faker-13.15.0
+asyncio: mode=Mode.STRICT
+collected 1 item                                                                                                                                             
+
+test_homework_05/test_app.py::test_build_and_run_app 
+PASSED                                                                                            [100%]
+
+===================================================================== 1 passed in 41.25s =====================================================================
+
 ---
 
 ### Домашнее задание "Docker контейнер c веб-приложением"
