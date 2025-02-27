@@ -19,6 +19,9 @@ http://localhost:8000/docs
 - GET /
 - GET /about
 
+### Проверка доступности приложения:
+http://localhost:8000/ping/
+
 ---
 
 ### Домашнее задание "Веб-приложение на FastAPI"
