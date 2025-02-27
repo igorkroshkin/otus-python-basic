@@ -33,13 +33,3 @@ async def read_index(request: Request):
 )
 async def read_about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request, "title": "О нас"})
-
-@app.get(
-    "/ping/",
-    status_code=200,
-)
-async def ping():
-    """
-    Проверка доступности сервиса
-    """
-    return {"message": "pong"}
