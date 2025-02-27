@@ -1,21 +1,23 @@
-1. Запуск приложения: 
+### Запуск приложения: 
 uvicorn app:app --reload
 
-2. Доступ к приложению:
+### Доступ к приложению:
 http://localhost:8000
 
-Доступные пункты меню: Главная, О нас
+Доступные пункты меню: 
+- Главная
+- О нас
 
-3. Доступ к документации:
+### Доступ к документации:
 http://localhost:8000/docs
 
 Доступные API:
-GET /api/users/
-POST /api/users/
-GET /api/users/{user_id}
-DELETE /api/users/{user_id}
-GET /
-GET /about
+- GET /api/users/
+- POST /api/users/
+- GET /api/users/{user_id}
+- DELETE /api/users/{user_id}
+- GET /
+- GET /about
 
 ---
 
