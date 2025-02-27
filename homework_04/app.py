@@ -12,9 +12,6 @@ app = FastAPI()
 # Подключаем шаблонизатор Jinja2
 templates = Jinja2Templates(directory="templates")
 
-# Подключаем статические файлы (если нужны)
-#app.mount("/static", StaticFiles(directory="static"), name="static")
-
 # Подключаем API-роутер для пользователей
 app.include_router(users_router, prefix="/api")
 

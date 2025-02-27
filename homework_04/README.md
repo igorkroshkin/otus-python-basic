@@ -1,14 +1,25 @@
-### Запуск приложения: 
-uvicorn app:app --reload
+### 1. Предварительные требования:
 
-### Доступ к приложению:
-http://localhost:8000
+1.1. Склонировать репозиторий:
+- git clone https://github.com/igorkroshkin/otus-python-basic.git
+
+1.2. Перейти в папку проекта:
+- cd homework_04
+
+1.3. Установить зависимости:
+- pip install -r requirements.txt
+
+### 2. Запуск приложения: 
+- uvicorn app:app --reload
+
+### 3. Доступ к приложению:
+- http://localhost:8000
 
 Доступные пункты меню: 
 - Главная
 - О нас
 
-### Доступ к документации:
+### 4. Доступ к документации:
 http://localhost:8000/docs
 
 Доступные API:
@@ -18,9 +29,6 @@ http://localhost:8000/docs
 - DELETE /api/users/{user_id}
 - GET /
 - GET /about
-
-### Проверка доступности приложения:
-http://localhost:8000/ping/
 
 ---
 
