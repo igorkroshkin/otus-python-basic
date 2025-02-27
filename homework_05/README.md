@@ -14,6 +14,7 @@ http://localhost:8000/ping/
 pytest -v
 
 ==== test session starts 
+
 platform linux -- Python 3.11.11, pytest-8.3.4, pluggy-1.5.0 -- /usr/bin/python3
 cachedir: .pytest_cache
 rootdir: /home/user/otus-test/otus-python-basic/homework_05
