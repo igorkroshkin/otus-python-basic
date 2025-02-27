@@ -4,26 +4,25 @@
 - docker-compose
 
 1.2. Склонировать репозиторий:  
-git clone https://github.com/igorkroshkin/otus-python-basic.git
+- git clone https://github.com/igorkroshkin/otus-python-basic.git
 
 1.3. Перейти в папку проекта:
-
-cd homework_05
+- cd homework_05
 
 ### 2. Запуск приложения:
 
-2.1. Через docker-compose: docker-compose up -d
+2.1. Через docker-compose: 
+- docker-compose up -d
 
 2.2. Через docker:
-
 - docker build -t ping-pong .
 - docker run -d -p 8000:8000 ping-pong
 
 ### 3. Проверка доступности приложения:
-http://localhost:8000/ping/
+- http://localhost:8000/ping/
 
 ### 4. Проверка автоматического теста:
-pytest -v
+- pytest -v
 
 === test session starts  
 
