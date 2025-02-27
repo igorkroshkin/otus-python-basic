@@ -4,7 +4,7 @@
 - docker-compose
 
 1.2. Склонировать репозиторий:
-https://github.com/igorkroshkin/otus-python-basic.git
+git clone https://github.com/igorkroshkin/otus-python-basic.git
 
 1.3. Перейти в папку проекта:
 
