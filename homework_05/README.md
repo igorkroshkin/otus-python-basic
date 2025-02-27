@@ -5,17 +5,17 @@
 
 ### 2. Запуск приложения:
 
-Через docker-compose: docker-compose up -d
+2.1. Через docker-compose: docker-compose up -d
 
-Через docker/build, docker/run:
+2.2. Через docker:
 
 - docker build -t ping-pong .
 - docker run -d -p 8000:8000 ping-pong
 
-### Проверка доступности приложения:
+### 3. Проверка доступности приложения:
 http://localhost:8000/ping/
 
-### Проверка автоматического теста:
+### 4. Проверка автоматического теста:
 pytest -v
 
 === test session starts  
