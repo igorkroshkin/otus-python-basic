@@ -7,6 +7,11 @@
 
 docker-compose up -d
 
+либо:  
+
+- docker build -t ping-pong .
+- docker run -d -p 8000:8000 ping-pong
+
 ### Проверка доступности приложения:
 http://localhost:8000/ping/
 
