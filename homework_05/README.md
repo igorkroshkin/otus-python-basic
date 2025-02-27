@@ -1,3 +1,24 @@
+1. Запуск приложения: 
+uvicorn app:app --reload
+
+2. Доступ к приложению:
+http://localhost:8000
+
+Доступные пункты меню: Главная, О нас
+
+3. Доступ к документации:
+http://localhost:8000/docs
+
+Доступные API:
+GET /api/users/
+POST /api/users/
+GET /api/users/{user_id}
+DELETE /api/users/{user_id}
+GET /
+GET /about
+
+---
+
 ### Домашнее задание "Веб-приложение на FastAPI"
 #### Задача:
 - скопируйте папку `homework_05` для этой домашки (Памятка: https://github.com/OtusTeam/BasePython/tree/homeworks)
