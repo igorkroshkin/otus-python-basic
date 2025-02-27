@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
-from fastapi.routing import APIRouter
+#from fastapi.staticfiles import StaticFiles
+#from fastapi.routing import APIRouter
 
 # Импортируем API-роутер для пользователей
 from api.users import users_router
